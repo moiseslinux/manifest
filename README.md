@@ -1,2 +1,2 @@
 # manifest
-fgftyfyu
+fgftyfyuuyiokoyoiiotyoi
