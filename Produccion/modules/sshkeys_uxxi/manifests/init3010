@@ -1,0 +1,17 @@
+class sshkeys_uxxi {
+
+
+
+ssh_authorized_key { 'ROOT-FOREMAN':
+    ensure  => present,
+    user    => 'root',
+    type    => 'ssh-rsa',
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDGF6+t0HTnWc2iLQsBWPU0NMlCbBHEWSmyjTqZrMQgRvR4hdXGiPrNzv6ChO9GiiNqjQN1R7kprXk5PEPTWNTbE6JoYXx0bGXwMFyAYSlVh5fBSXo8kceE/+7wo5rFyZ/CsnIFRdApnEgwplvIVqWWgMUxMZqEfExW8bA3LcKXZB0Obp1JqVhQjvqcdJGKU8UEdgt5q2S11bV3Ffn7HD3sgCfwEBZfSPsQ5EeENol5L+zl3LV6elsNxxkYM6O5vNkkplaMJ0/mVatOg601wm+awPnuTUmmte8diBAkYE7h2KF/z2guBJbepkaCb2RueC540nH7SEieVCwwB5mN5F1F',
+    name    => 'root@serverforeman.uxxi.net',
+    #require => User ['existe_root_user']
+  }
+
+
+
+
+}

@@ -1,0 +1,11 @@
+#class ssh {
+  ssh_authorized_key { 'root':
+    ensure  => present,
+    user    => 'root',
+    type    => 'ssh-dss',
+    key     => 'AAAAB3NzaC1kc3MAAACBALdrlleGinRXoS/nxdAh+TfUcLTLGZKT11qbSKt077UWZCbG2UvKV5WUBFwdMb0hX1vYkZJnowaKwoAWWgo4Pr/bAG88wnpf0ljzKnIRoIucP7TRxIX8Zq7sVLr8dZpbaSUHdTEgIT77v4w8cx59wOW8LUEBAHxR1sktfG32tZrjAAAAFQCEHmM6Rxk7T4HagmwNHUcCvqAYMQAAAIBBd5otF5b5wINg56gG+rub9Vno1zbxuZ6Tjkqxm2wFpvj6SKiItuf2jnBjfkYXlEPF+RW04xrfI3bbQcs+fKKJruweWFtN/rJW47lvsRExVSoHV5u1pUWR0PpgbGFZM83Zo4ApIzcNInqiWbtENgGmeYxC1KkS0C1B6PG7v6yr8AAAAIBLJB3yH/iR75Y5tACCYiSe7uHBWCgzl3iQCPkh0nQmLCYmUpbRCU6f44Bf1MXkvzXZ/F1toU9hsGubA0k6CpYe5OxXCGcrMV/dZgcVbmoVNPUdAVx7ACQ0vnB1Cmi51vdNpQBq7bcHJmXggf9lT10x9Gd7n4HgMiFaK+2TTNtb9A==',
+    #name    => 'sistemas@cti.csic.es ',
+   }
+
+
+#}

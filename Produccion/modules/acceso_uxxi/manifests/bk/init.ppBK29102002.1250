@@ -1,0 +1,34 @@
+class sudoers  {
+     #Class['sudoers::encuestas'] -> Class['sudoers::devops']
+     #class { 'sudoers::encuestas': }
+     #     #class { 'sudoers::devops':  }
+
+}
+     
+
+
+class sudoers::encuestas {
+# agrgar grupos
+file_line { 'group_rule':
+      path => '/etc/sudoers',
+      line => '%moises ALL=(ALL) ALL',
+    }
+
+    file_line { 'grooup_rule_nopw':
+      path => '/etc/sudoers',
+      line => '%sudonopw ALL=(ALL) NOPASSWD: ALL',
+    }
+#agregar usurios
+file_line { 'user_rule':
+      path => '/etc/sudoers',
+      line => template ("/etc/puppetlabs/code/environments/prueba/modules/sudoers/template/users.erb"),
+#'max ALL=(ALL) ALL',
+    }
+
+    file_line { 'user_rule_nopw':
+      path => '/etc/sudoers',
+      line => 'killer ALL=(ALL) NOPASSWD: ALL',
+    }
+}
+
+
