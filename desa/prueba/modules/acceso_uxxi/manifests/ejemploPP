@@ -1,0 +1,71 @@
+# colocas el nombre del grupo                         class group_uxxi::xxxxx
+
+class group_uxxi::devops {
+
+ package { "ntpdate":
+    ensure => latest,
+  }
+
+##################### GRUPOS SUDO ###################################
+
+# coloca el nombre del grupo                          file_line { 'Grp_xxxxx':
+# para borara un grupo                                ensure => absent,
+# para agregar un grupo                               ensure => present,
+# la ruta del archivo a modificar NO SE MODIFICA      path => '/etc/sudoers',
+# coloca el nombre del grupo                          line => '%supp ALL=(ALL) ALL'
+
+
+# BORRAR GRUPO
+ file_line { 'Grp_devops':
+      ensure => absent,
+      path => '/etc/sudoers',
+      line => '%supp ALL=(ALL) ALL'
+  }  
+
+# AGREGAR GRUPO  
+  file_line { 'Grp_sstt':
+      ensure => present,
+      path => '/etc/sudoers',
+      line => '%sstt1 ALL=(ALL) ALL',
+  }  
+      
+################# GRUPOS SSH ###########################################  
+
+# coloca el nombre del grupo                          file_line { 'Groups_xxxxx':
+# para borara un grupo                                ensure => absent,
+# para agregar un grupo                               ensure => present,
+# la ruta del archivo a modificar NO SE MODIFICA      path => '/etc/ssh/sshd_config',
+# se le indica que despues de la linea x coloca       after  => 'AuthorizedKeysFile',
+# la regla AllowGroup
+# se indica los grupos                                line  => 'AllowGroups prue_sstt',
+
+
+
+
+ #BORRAR GRUPO 
+  file_line { 'Groups_prue_sstt':
+        ensure => absent,
+        path             => '/etc/ssh/sshd_config',
+        after            => 'AuthorizedKeysFile',
+        line             => 'AllowGroups prue_sstt',
+        replace    => true
+ } 
+
+#AGREGAR GRUPO
+  file_line { 'Groups-AD':
+        ensure => present,
+        path             => '/etc/ssh/sshd_config',
+        after            => 'AuthorizedKeysFile',
+        line             => 'AllowGroups root sstt1 ',
+        notify            => Service[sshd],
+        replace    => true
+ } 
+
+  service { 'sshd':
+    ensure  => 'running',
+    enable  => true,
+    #require => Package['openssh-server'],
+  }
+  
+
+}

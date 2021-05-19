@@ -1,0 +1,35 @@
+class sudoers_uxxi  {
+     #Class['sudoers::encuestas'] -> Class['sudoers::devops']
+     #class { 'sudoers::encuestas': }
+     #     #class { 'sudoers::devops':  }
+
+}
+     
+
+
+class sudoers_uxxi::encuestas {
+#agregar grupos
+file_line { 'encuestas':
+      path => '/etc/sudoers',
+      line => template ("/etc/puppetlabs/code/environments/prueba/modules/sudoers_uxxi/template/encuestas.erb"),
+    }
+}
+
+
+class sudoers_uxxi::devops {
+#agregar grupos
+file_line { 'user_rule':
+      ensure   => present,
+      path => '/etc/sudoers',
+      line => template ("/etc/puppetlabs/code/environments/prueba/modules/sudoers_uxxi/template/devops.erb"),
+    }
+
+#elminar grupo
+#file_line { 'user_rule':
+#      ensure   => absent,
+#      path => '/etc/sudoers',
+#      line => template ("/etc/puppetlabs/code/environments/prueba/modules/sudoers_uxxi/template/devops.erb"),
+#    }
+
+}
+

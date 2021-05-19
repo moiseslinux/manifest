@@ -1,0 +1,130 @@
+class iptables { 
+}
+ 
+
+class iptables::install {
+
+# Install
+package { 'iptables-services':
+  ensure => present,
+}
+ }
+
+class iptables::service {
+service { 'iptables':
+    ensure => running,
+    enable => true,
+  }
+}
+
+#  file { '/etc/init.d/iptables':
+#    ensure  => 'file',
+#    owner   => 'root',
+#    group   => 'root',
+#    mode    => '0755',
+#    content => file("${module_name}/iptables"),
+#    seltype => 'iptables_initrc_exec_t'
+#  }
+#
+#  # --------------------------------------------------
+#  # star iptables
+#  #
+#  file { '/etc/init.d/iptables-retry':
+#    ensure  => 'file',
+#    owner   => 'root',
+#    group   => 'root',
+#    mode    => '0744',
+#    content => file("${module_name}/iptables-retry"),
+#    seltype => 'iptables_initrc_exec_t'
+#  }
+
+
+#
+#-------------------------------------------
+#      IN
+
+#class iptables::reglas {
+#    exec { 'Iptables relas 172.23.0.0' :
+#    command => "/sbin/iptables -A INPUT  -s 172.23.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi 172.16' :
+#    command => "/sbin/iptables -A INPUT  -s 172.16.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi 172.21.0.0' :
+#    command => "/sbin/iptables -A INPUT  -s 172.21.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables rel 172.16.0.0' :
+#    command => "/sbin/iptables -A INPUT  -s 172.16.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi 172.30.0.0' :
+#    command => "/sbin/iptables -A INPUT  -s 172.30.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi 172.22.0.0' :
+#    command => "/sbin/iptables -A INPUT  -s 172.22.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi 192.168.0.0' :
+#    command => "/sbin/iptables -A INPUT  -s 192.168.1.0/24 -j DROP",
+#    timeout => 1000
+#  }
+#
+#
+#exec { 'Iptables  0.0.0.0 DROP' :
+#    command => "/sbin/iptables -A INPUT  -s 0.0.0.0/0 -j DROP",
+#    timeout => 1000
+#}
+#
+#
+##
+##------------------------------------------------------
+##     OUT
+#
+#exec { 'Iptables reglas OUT 172.23.0.0' :
+#    command => "/sbin/iptables -A OUTPUT  -d 172.23.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables OUT 172.16' :
+#    command => "/sbin/iptables -A OUTPUT  -d 172.16.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi OUT 172.30.0.0' :
+#    command => "/sbin/iptables -A OUTPUT  -d 172.30.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables relasi OUT 172.22.0.0' :
+#    command => "/sbin/iptables -A OUTPUT  -d 172.22.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables reglas OUT 172.21.0.0' :
+#    command => "/sbin/iptables -A OUTPUT  -d 172.21.0.0/16 -j ACCEPT",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables reglas OUT 192.168.0.0' :
+#    command => "/sbin/iptables -A OUTPUT  -d 192.168.1.0/24 -j DROP",
+#    timeout => 1000
+#  }
+#
+#exec { 'Iptables reglas OUT 0.0.0.0 DROP' :
+#    command => "/sbin/iptables -A OUTPUT  -d 0.0.0.0/0 -j DROP",
+#    timeout => 1000
+#}
+#
+
+#}
+

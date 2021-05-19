@@ -1,0 +1,14 @@
+class service_uxxi {
+
+
+include acceso_uxxi::service
+
+
+file { '/etc/sshd_config':
+    notify => Service[sshd],
+}
+
+
+
+}
+

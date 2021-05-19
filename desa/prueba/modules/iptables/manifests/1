@@ -1,0 +1,12 @@
+class iptables { 
+}
+ 
+
+class iptables::install {
+ if $facts['os']['name'] in ['RedHat','CentOS','OracleLinux'] {
+      if $facts['os']['release']['major'] > '6' {
+
+
+}
+}
+}

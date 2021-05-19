@@ -1,0 +1,21 @@
+class iptables { 
+}
+ 
+
+class iptables::install {
+package { 'iptables-services':
+  ensure => present,
+}
+
+
+package { 'iptables':
+   ensure => present,
+ }
+}
+
+class iptables::service {
+service { 'iptables':
+    ensure => running,
+    enable => true,
+  }
+}

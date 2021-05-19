@@ -1,0 +1,24 @@
+class sophos {
+     #class { 'sophos::descarga': }
+     #class { 'sophos::instalar': }
+}
+
+class sophos::descarga {
+  wget::fetch { 'Descarga del archivo de instalacion':
+  source      => 'https://dzr-api-amzn-eu-west-1-9af7.api-upe.p.hmr.sophos.com/api/download/41b535f488a8af5b23d7bd6a5bb921b4/SophosInstall.sh',
+#  #source      => 'http://serverforeman.uxxi.net/pub/SophosInstall.sh',
+  destination => '/tmp/',
+  timeout     => 30,
+#  verbose     => false,
+  }
+}
+
+
+class sophos::instalar {
+  exec { 'Instalacion_SophosInstall' :
+  command => "/bin/sh '/tmp/SophosInstall.sh'",
+#  require => Wget::fetch ['Descarga del archivo de instalacion']
+   timeout    => 30,
+ }
+}
+

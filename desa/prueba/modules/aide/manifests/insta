@@ -1,0 +1,18 @@
+class aide::install {
+    package { $package:
+      ensure => $version,
+    }
+
+  }
+
+class aide::install (
+  $package,
+  $version,
+) {
+
+      install::aide { 'aide' :
+        package    => $package, 
+        ensure => $version,
+       }
+ }
+

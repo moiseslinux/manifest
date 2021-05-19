@@ -1,0 +1,7 @@
+ ###############################################
+ # Debes ingresar con un usuario del  dominio, #
+ # esta denegado el acceso con root por ssh,   #
+ # solo se permite trabajar con root           #
+ # desde la consola.                           #
+ ###############################################
+ 

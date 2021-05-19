@@ -1,0 +1,8 @@
+class privileges {
+
+   sudo::conf { 'pepe':
+   ensure  => present,
+   content => '%pepe ALL=(ALL) ALL',
+   }
+
+ }
