@@ -1,0 +1,14 @@
+[uxxi-ol7]
+name=Spacewalk Client 2.4 for Oracle Linux 5 ($basearch)
+baseurl=http://yum.oracle.com/repo/OracleLinux/OL7/spacewalk24/client/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
+
+
+[uxxi-ol7]
+name=Spacewalk Client 2.4 for Oracle Linux 4 ($basearch)
+baseurl=http://yum.oracle.com/repo/OracleLinux/OL7/spacewalk24/client/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=0
